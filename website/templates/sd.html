@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}employee{% endblock %}
+{% block content %}
+<body>
+    <div class="container">
+        <h1 class="mt-5 mb-4">Apply for Jobs</h1>
+        <div id="jobList">
+            {% for job in jobs %}
+               <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title">{{ job.title }}</h3>
+                    <p class="card-text">{{ job.description }}</p>
+                    <form action="{{ url_for('views.apply', job_id = job.id)}}"  method="POST">
+                        <button type="submit" class="btn btn-primary">Apply</button>
+                        <input type="hidden" name="job_id" value="{{ job.id }}">
+                    </form>
+                </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</body>
+
+{% endblock %}

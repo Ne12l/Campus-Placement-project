@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Employee Sign-up{% endblock %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='login.css')}}">
+<main class="container__main-page main__content">
+    <div class="spacer__container">
+        <h1 class="pageHeading__h1">Sign-up to CampusPlacer</h1>
+        <div class="form__container">
+            <div class="container__content-form">
+                <div class="flex__style col__style login-form__style">
+                    <form action="#" class="form__base" method="post">
+                        <legend class="screenRead__style">Sign-up</legend>
+                        <div class="form__group1">
+                            <div class="form__group2 form__group3">
+                                <label for="id" class="Label__formGroup">ID</label>
+                                <input class="input__formGroup" type="text" name="id" id="user_id" >
+                            </div>
+                            <div class="form__group2 form__group3">
+                                <label for="name" class="Label__formGroup">Name</label>
+                                <input class="input__formGroup" type="text" name="name" id="user_name" >
+                            </div>
+                            <div class="form__group2 form__group3">
+                                <label for="email" class="Label__formGroup">Email</label>
+                                <input type="email" name="email" id="user_email" class="input__formGroup" value="">
+                            </div>
+                            <div class="form__group2 form__group3">
+                                <label for="type" class="Label__formGroup">User Type</label>
+                                <select name="type" id="user_type" class="input__formGroup">
+                                    <option value="  ">Select User Type</option> <!-- Default option -->
+                                    <option value="student">Student</option>
+                                    <option value="employee">Employee</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form__group2 form__group3" id="cgpa-field" style="display:none;">
+                                <label for="CGPA" class="Label__formGroup">CGPA</label>
+                                <input class="input__formGroup" type="text" name="CGPA" id="user_cgpa" >
+                            </div>
+                        </div>
+                        <div class="form__group2 form__group3">
+                            <label for="password" class="Label__formGroup">Password</label>
+                            <input type="password" name="password" id="user_password" class="input__formGroup" value="">
+                        </div>
+                        <div class="padBottom__IfNotEmpty"></div>
+                        <button class="basic__button btn__lg btn__royalblue btn__xlarge btn__submit" id="user_submit">Register</button>
+                    </form>
+                </div>
+                
+                <a href="/login" class="outLink__register">Already a member<b>login</b></a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    document.getElementById('user_type').addEventListener('change', function() {
+        var userType = this.value;
+        var cgpaField = document.getElementById('cgpa-field');
+        if (userType === 'student') {
+            // Show CGPA field
+            cgpaField.style.display = 'block';
+        } else {
+            // Hide CGPA field
+            cgpaField.style.display = 'none';
+        }
+    });
+</script>
+
+
+{% endblock %}

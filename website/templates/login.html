@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}StudentLogin{% endblock %}
+{% block content %}
+
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='login.css')}}">
+<main class="container__main-page main__content">
+    <div class="spacer__container">
+        <h1 class="pageHeading__h1">Log In to CampusPlacer</h1>
+        <div class="form__container">
+            <div class="container__content-form">
+                <div class="flex__style col__style login-form__style">
+                    <form action="#" class="form__base" method="post">
+                        <legend class="screenRead__style">Log in</legend>
+                        <div class="form__group1">
+                            <div class="form__group2 form__group3">
+                                <label for="email" class="Label__formGroup">Email</label>
+                                    <input type="text" name="email" id="user_login"
+                                    class="input__formGroup" value=""></div>
+                            <div class="form__group2 form__group3">
+                                <label for="password"
+                                    class="Label__formGroup">Password</label>
+                                    <input type="password" name="password" id="login__user_password"
+                                    class="input__formGroup" value=""></div>
+                        </div>
+                        <div class="padBottom__IfNotEmpty"></div>
+                            <button class="basic__button btn__lg btn__royalblue btn__xlarge btn__submit"
+                            id="user_submit">Log in</button>
+                    </form>
+                </div>
+                
+        <a href="/sign_in" class="outLink__register">Not a member yet? <b>Sign up free</b></a>
+    </div>
+</main>
+   
+  
+
+{% endblock %}

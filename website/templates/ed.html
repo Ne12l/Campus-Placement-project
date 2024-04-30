@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}employee{% endblock %}
+{% block content %}
+<body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <div class="container text-center">
+        <h1>Post Jobs</h1>
+        <form id="jobForm" method="POST" action="/post_jobs">
+            <div class="form-group">
+                <label for="title">Job Title:</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Job Description:</label>
+                <textarea class="form-control" id="description" name="description" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Post Job</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+{% endblock %}

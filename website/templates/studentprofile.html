@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Student Profile{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<div class="container mt-5">
+    <h1>Student Profile</h1>
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">Name: {{ student.name }}</h5>
+            <p class="card-text">Email: {{ student.email }}</p>
+            <p class="card-text">CGPA: {{ student.cgpa }}</p>
+        </div>
+    </div>
+    
+    <div class="mt-5">
+        <h3>Jobs Applied:</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Job Title</th>
+                    <th>Job Description</th>
+                    <th>Employer</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for job in jobs_applied %}
+                <tr>
+                    <td>{{ job.job_title }}</td>
+                    <td>{{ job.job_description }}</td>
+                    <td>{{ job.employee_name }}</td>
+                    <td>{{ job.status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+
